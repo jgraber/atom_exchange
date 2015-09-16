@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AtomProducer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,8 +24,17 @@ namespace AtomProducer.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
+            
             return View();
         }
+
+        public ActionResult Feed()
+        {
+            FeedCreator feedCreator = new FeedCreator();
+            var feed = feedCreator.CreateFeed();
+            return new AtomActionResult(feed);
+        }
+
+        // Use http://rehansaeed.com/building-rssatom-feeds-for-asp-net-mvc/ as template
     }
 }
