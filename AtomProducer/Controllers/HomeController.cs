@@ -31,7 +31,7 @@ namespace AtomProducer.Controllers
         public ActionResult Feed()
         {
             FeedCreator feedCreator = new FeedCreator();
-            var feed = feedCreator.CreateFeed();
+            var feed = feedCreator.CreateFeed(true);
             return new AtomActionResult(feed);
         }
 

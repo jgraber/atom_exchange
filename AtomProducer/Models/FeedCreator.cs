@@ -9,10 +9,11 @@ namespace AtomProducer.Models
     public class FeedCreator
     {
 
-        public SyndicationFeed CreateFeed()
+        public SyndicationFeed CreateFeed(bool first)
         {
             // Add example based on the blog post from Rehan Saeed
             // see: http://rehansaeed.com/building-rssatom-feeds-for-asp-net-mvc/
+            // alternative example: http://stackoverflow.com/questions/13018426/how-to-improve-my-solution-for-rss-atom-using-syndicationfeed-with-servicestack
 
             SyndicationFeed feed = new SyndicationFeed()
             {
@@ -21,13 +22,17 @@ namespace AtomProducer.Models
                 // title (Required) - Contains a human readable title for the feed. Often the same as the title of the 
                 //                    associated website. This value should not be blank.
                 Title = SyndicationContent.CreatePlaintextContent("AtomExchange Demo Feed"),
-                // items (Required) - The entries to add to the feed. I'll cover how to do this further on.
-                Items = this.GetItems(),
                 // subtitle (Recommended) - Contains a human-readable description or subtitle for the feed.
                 Description = SyndicationContent.CreatePlaintextContent("A basic example of ATOM"),
                 // updated (Optional) - Indicates the last time the feed was modified in a significant way.
                 LastUpdatedTime = DateTimeOffset.Now
             };
+
+            if (first)
+            {
+                // items (Required) - The entries to add to the feed. I'll cover how to do this further on.
+                feed.Items = this.GetFirstItems();
+            }
 
             // self link (Required) - The URL for the syndication feed.
             feed.Links.Add(SyndicationLink.CreateSelfLink(
@@ -40,10 +45,17 @@ namespace AtomProducer.Models
             return feed;
         }
 
-        private IEnumerable<SyndicationItem> GetItems()
+        private IEnumerable<SyndicationItem> GetFirstItems()
         {
             var entries = new List<SyndicationItem>();
             entries.Add(new SyndicationItem("A", "Person A aus Bern", new Uri("http://example.com/people/123")));
+            return entries;
+        }
+
+        private IEnumerable<SyndicationItem> GetSecondItems()
+        {
+            var entries = new List<SyndicationItem>();
+            entries.Add(new SyndicationItem("Z", "The people of Z", new Uri("http://example.com/country/z")));
 
             return entries;
         }
