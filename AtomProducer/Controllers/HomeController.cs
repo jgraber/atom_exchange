@@ -28,10 +28,10 @@ namespace AtomProducer.Controllers
             return View();
         }
 
-        public ActionResult Feed()
+        public ActionResult Feed(int id = 1)
         {
             FeedCreator feedCreator = new FeedCreator();
-            var feed = feedCreator.CreateFeed(true);
+            var feed = feedCreator.CreateFeed(id);
             return new AtomActionResult(feed);
         }
 

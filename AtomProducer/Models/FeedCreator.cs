@@ -9,7 +9,7 @@ namespace AtomProducer.Models
     public class FeedCreator
     {
 
-        public SyndicationFeed CreateFeed(bool first)
+        public SyndicationFeed CreateFeed(int page)
         {
             // Add example based on the blog post from Rehan Saeed
             // see: http://rehansaeed.com/building-rssatom-feeds-for-asp-net-mvc/
@@ -28,10 +28,14 @@ namespace AtomProducer.Models
                 LastUpdatedTime = DateTimeOffset.Now
             };
 
-            if (first)
+            if (page == 1)
             {
                 // items (Required) - The entries to add to the feed. I'll cover how to do this further on.
                 feed.Items = this.GetFirstItems();
+            }
+            else
+            {
+                feed.Items = this.GetSecondItems();
             }
 
             // self link (Required) - The URL for the syndication feed.
