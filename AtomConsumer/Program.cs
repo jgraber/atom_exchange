@@ -12,7 +12,7 @@ namespace AtomConsumer
     {
         static void Main(string[] args)
         {
-            var feedUrl = "http://localhost:7646/Home/Feed";
+            var feedUrl = "http://localhost:7646/Home/Feed/false";
             //var feedUrl = "http://improveandrepeat.com/feed/atom/";
 
             Atom10FeedFormatter formatter = new Atom10FeedFormatter();
