@@ -52,15 +52,14 @@ namespace AtomProducer.Models
         private IEnumerable<SyndicationItem> GetFirstItems()
         {
             var entries = new List<SyndicationItem>();
-            entries.Add(new SyndicationItem("A", "Person A aus Bern", new Uri("http://example.com/people/123")));
+            entries.Add(new PersonChange() { PersonId = 3, LastName = "Muster", FirstName = "Max", PublishDate = DateTime.Now});
             return entries;
         }
 
         private IEnumerable<SyndicationItem> GetSecondItems()
         {
             var entries = new List<SyndicationItem>();
-            entries.Add(new SyndicationItem("Z", "The people of Z", new Uri("http://example.com/country/z")));
-
+            entries.Add(new PersonChange() {PersonId = 20, LastName = "Graber", FirstName = "Johnny", PublishDate = DateTime.Now.AddDays(1)});    
             return entries;
         }
     }
