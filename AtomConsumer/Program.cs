@@ -23,7 +23,7 @@ namespace AtomConsumer
 
             foreach (SyndicationItem item in formatter.Feed.Items)
             {
-                Console.WriteLine("[{0}][{1}] {2}", item.PublishDate, item.Title.Text, item.Links.First().Uri);
+                Console.WriteLine("[{0}][{1}]", item.PublishDate, item.Title.Text);
             }
 
             Console.ReadLine();
