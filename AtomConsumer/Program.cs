@@ -12,9 +12,16 @@ namespace AtomConsumer
     {
         static void Main(string[] args)
         {
-            var feedUrl = "http://localhost:7646/Home/Feed/false";
+            var feedUrl = "http://localhost:7646/Home/Feed/2";
             //var feedUrl = "http://improveandrepeat.com/feed/atom/";
 
+            ReadFeed(feedUrl);
+
+            Console.ReadLine();
+        }
+
+        private static void ReadFeed(string feedUrl)
+        {
             Atom10FeedFormatter formatter = new Atom10FeedFormatter();
             using (XmlReader reader = XmlReader.Create(feedUrl))
             {
@@ -26,7 +33,11 @@ namespace AtomConsumer
                 Console.WriteLine("[{0}][{1}]", item.PublishDate, item.Title.Text);
             }
 
-            Console.ReadLine();
+            var prevArchive = formatter.Feed.Links.FirstOrDefault(l => l.RelationshipType == "prev-archive");
+            if (prevArchive != null)
+            {
+                ReadFeed(prevArchive.Uri.ToString());
+            }
         }
     }
 }

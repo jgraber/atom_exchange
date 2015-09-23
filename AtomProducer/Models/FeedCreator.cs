@@ -32,10 +32,11 @@ namespace AtomProducer.Models
             {
                 // items (Required) - The entries to add to the feed. I'll cover how to do this further on.
                 feed.Items = this.GetFirstItems();
-            }
+                }
             else
             {
                 feed.Items = this.GetSecondItems();
+                feed.Links.Add(new SyndicationLink() { RelationshipType = "prev-archive", Uri = new Uri("http://localhost:7646/Home/Feed/1") });
             }
 
             // self link (Required) - The URL for the syndication feed.
@@ -45,7 +46,7 @@ namespace AtomProducer.Models
             // alternate link (Recommended) - The URL for the web page showing the same data as the syndication feed.
             feed.Links.Add(SyndicationLink.CreateAlternateLink(
                 new Uri("http://example.com"), "text/html"));
-
+            
             return feed;
         }
 
