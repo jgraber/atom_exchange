@@ -126,6 +126,7 @@
     </Compile>
     <Compile Include="Models\AtomActionResult.cs" />
     <Compile Include="Models\FeedCreator.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PersonChange.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
