@@ -53,7 +53,9 @@ namespace AtomProducer.Models
         private IEnumerable<SyndicationItem> GetFirstItems()
         {
             var entries = new List<SyndicationItem>();
-            entries.Add(new PersonChange() { PersonId = 3, LastName = "Muster", FirstName = "Max", PublishDate = DateTime.Now});
+            Person person = new Person() { Id = 3, LastName = "Muster", FirstName = "Max"};
+
+            entries.Add(new PersonChange(person){ PublishDate = DateTime.Now});
             return entries;
         }
 

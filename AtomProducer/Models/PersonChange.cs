@@ -14,6 +14,7 @@ namespace AtomProducer.Models
         public int PersonId { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
+        public Person Person { get; set; }
         
         public PersonChange()
         {
@@ -25,6 +26,7 @@ namespace AtomProducer.Models
             LastName = person.LastName;
             FirstName = person.FirstName;
             PersonId = person.Id;
+            Person = person;
         }
 
         protected override bool TryParseElement(XmlReader reader, string version)
@@ -58,6 +60,7 @@ namespace AtomProducer.Models
             ElementExtensions.Add("PersonId", _personNamespace, PersonId);
             ElementExtensions.Add("LastName", _personNamespace, LastName);
             ElementExtensions.Add("FirstName", _personNamespace, FirstName);
+            ElementExtensions.Add("Person", _personNamespace, Person);
 
             base.WriteElementExtensions(writer, version);
         }
