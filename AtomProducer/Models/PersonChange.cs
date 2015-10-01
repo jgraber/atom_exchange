@@ -20,6 +20,13 @@ namespace AtomProducer.Models
 
         }
 
+        public PersonChange(Person person)
+        {
+            LastName = person.LastName;
+            FirstName = person.FirstName;
+            PersonId = person.Id;
+        }
+
         protected override bool TryParseElement(XmlReader reader, string version)
         {
             if (reader.LocalName.Equals("LastName") &&
