@@ -54,6 +54,7 @@ namespace AtomProducer.Models
         {
             var entries = new List<SyndicationItem>();
             Person person = new Person() { Id = 3, LastName = "Muster", FirstName = "Max"};
+            person.Address = new Address() {City = "Bern", Street = "Bundesgasse", Number = "1", ZipCode = "3000"};
 
             entries.Add(new PersonChange(person){ PublishDate = DateTime.Now});
             return entries;

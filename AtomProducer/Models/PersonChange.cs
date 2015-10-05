@@ -5,6 +5,7 @@ using System.Security.AccessControl;
 using System.ServiceModel.Syndication;
 using System.Web;
 using System.Xml;
+using Newtonsoft.Json;
 
 namespace AtomProducer.Models
 {
@@ -60,7 +61,7 @@ namespace AtomProducer.Models
             ElementExtensions.Add("PersonId", _personNamespace, PersonId);
             ElementExtensions.Add("LastName", _personNamespace, LastName);
             ElementExtensions.Add("FirstName", _personNamespace, FirstName);
-            ElementExtensions.Add("Person", _personNamespace, Person);
+            ElementExtensions.Add("Person", _personNamespace, JsonConvert.SerializeObject(Person));
 
             base.WriteElementExtensions(writer, version);
         }
