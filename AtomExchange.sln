@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtomConsumer", "AtomConsume
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtomProducer", "AtomProducer\AtomProducer.csproj", "{791FA36E-58C2-47C7-83E0-F398693BC91A}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AtomShared", "AtomShared\AtomShared.xproj", "{1C3C4830-507B-4D45-9F20-3403E573B6E9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{791FA36E-58C2-47C7-83E0-F398693BC91A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{791FA36E-58C2-47C7-83E0-F398693BC91A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{791FA36E-58C2-47C7-83E0-F398693BC91A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C3C4830-507B-4D45-9F20-3403E573B6E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C3C4830-507B-4D45-9F20-3403E573B6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C3C4830-507B-4D45-9F20-3403E573B6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C3C4830-507B-4D45-9F20-3403E573B6E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
