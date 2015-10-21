@@ -184,6 +184,12 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AtomShared\AtomShared.csproj">
+      <Project>{c5232eee-1846-4b20-a169-c92051dbb5f3}</Project>
+      <Name>AtomShared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

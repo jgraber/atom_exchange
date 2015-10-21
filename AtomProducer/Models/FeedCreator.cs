@@ -53,17 +53,17 @@ namespace AtomProducer.Models
         private IEnumerable<SyndicationItem> GetFirstItems()
         {
             var entries = new List<SyndicationItem>();
-            Person person = new Person() { Id = 3, LastName = "Muster", FirstName = "Max"};
-            person.Address = new Address() {City = "Bern", Street = "Bundesgasse", Number = "1", ZipCode = "3000"};
+            AtomShared.Models.Person person = new AtomShared.Models.Person() { Id = 3, LastName = "Muster", FirstName = "Max"};
+            person.Address = new AtomShared.Models.Address() {City = "Bern", Street = "Bundesgasse", Number = "1", ZipCode = "3000"};
 
-            entries.Add(new PersonChange(person){ PublishDate = DateTime.Now});
+            entries.Add(new AtomShared.Models.PersonChange(person){ PublishDate = DateTime.Now});
             return entries;
         }
 
         private IEnumerable<SyndicationItem> GetSecondItems()
         {
             var entries = new List<SyndicationItem>();
-            entries.Add(new PersonChange() {PersonId = 20, LastName = "Graber", FirstName = "Johnny", PublishDate = DateTime.Now.AddDays(1)});    
+            entries.Add(new AtomShared.Models.PersonChange() {PersonId = 20, LastName = "Graber", FirstName = "Johnny", PublishDate = DateTime.Now.AddDays(1)});    
             return entries;
         }
     }
